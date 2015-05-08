@@ -13,7 +13,7 @@ var Module = Module || {};
 /*
   Convenience function loading dcmjs.js asynchronously
 */
-dcmjs.utils.initialize = function() {
+dcmjs.utils.initialize = function(dcmjsPath) {
 
   if (typeof Pace != 'undefined') {
     Pace.on("done", function(){
@@ -21,7 +21,8 @@ dcmjs.utils.initialize = function() {
     });
   }
 
-  $.getScript("../javascripts/libs/dcmjs.js");
+  var scriptPath = dcmjsPath || "../javascripts/libs/dcmjs.js";
+  $.getScript(scriptPath);
 }
 
 //
